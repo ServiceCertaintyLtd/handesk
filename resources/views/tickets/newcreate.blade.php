@@ -2,19 +2,9 @@
 @section('content')
 
 
-<style>
-.ticket-header{
-    box-shadow: rgba(0, 0, 0, 0.075) 0px 0.125rem 0.25rem;
-}   
-
-.ticket-header-logo{
-    margin: 20px 0px 3px 0;;
-}
-</style>
-
-<div class="ticket-header">
+<div class="ticket-header shadow-outer-1">
     <div class="thrust-index-header description">
-        <img src="{{ url("/images/service-certainty-logo.jpg") }}" class="ticket-header-logo" width="220px" /> 
+        <img src="{{ url("/images/service-certainty-logo.jpg") }}" style="margin: 20px 0px 3px 0;" class="ticket-header-logo" width="220px" /> 
     </div>
 </div>
 <div class="container-fluid">
