@@ -1,12 +1,26 @@
 @extends('layouts.requester')
 @section('content')
-    <div class="description comment">
-        <div class="breadcrumb">
-            <a href="{{ url()->previous() }}">{{ trans_choice('ticket.ticket', 2) }}</a>
-        </div>
+
+
+<div class="ticket-header shadow-outer-1">
+    <div class="thrust-index-header description">
+        <img src="{{ url("/images/service-certainty-logo.jpg") }}" style="margin: 20px 0px 3px 0;" class="ticket-header-logo" width="220px" /> 
+    </div>
+</div>
+<div class="container-fluid">
+
+    <div class="description mt4">
+        <span class="fs4 bold">
+        Add a new ticket
+</span>
+
     </div>
 
-    {{ Form::open(["url" => route("requester.newticket")]) }}
+    <div class="description mb3">
+        <span>Please add your details and describle the issue you are having, then click "New"</span>
+    </div>
+
+    {{ Form::open(["url" => route("requester.newticket"), "class" => "card"]) }}
     <div class="comment description actions">
         <table class="maxw600 no-padding">
             <tr><td class="w20"><b> {{ __('ticket.requester') }}:</b></td></tr>
@@ -15,11 +29,13 @@
         </table>
     </div>
 
-    <div class="comment new-comment">
+    <div class="description new-comment">
         <table class="maxw600 no-padding">
-            <tr><td class="w20">{{ __('ticket.subject') }}: </td>     <td><input name="title" class="w100" required/></td></tr>
-            <tr><td>{{ trans_choice('ticket.tag', 2)}}: </td><td><input     name="tags" id="tags"/></td></tr>
-            <tr><td>{{ __('ticket.comment')         }}: </td><td><textarea  name="body" required></textarea></td></tr>
+            <tr><td class="w20">{{ __('ticket.subject') }}: </td>     
+            <td><input name="title" class="w100" required/></td></tr>
+            <tr><td>{{ trans_choice('ticket.tag', 2)}}: </td><td><input name="tags" id="tags"/><p class="mv1">Separate tags with commas</p></td></tr>
+            <tr><td>Issue: </td><td><textarea name="body" required></textarea></td></tr>
+            
             <tr><td>{{ __('ticket.status') }}: </td><td>
                 {{ Form::select("status", [
                     App\Ticket::STATUS_NEW      => __("ticket.new"),
@@ -31,6 +47,8 @@
         </table>
         {{ Form::close() }}
     </div>
+
+</div>
 @endsection
 
 
